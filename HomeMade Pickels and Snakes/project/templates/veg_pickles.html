@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veg Pickles - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background-color: #fff8e1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #ff9800;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      color: #e65100;
+      margin-top: 20px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .product {
+      background: #fff3e0;
+      border: 2px solid #ffa726;
+      border-radius: 10px;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+    }
+    .product h2 {
+      color: #e65100;
+      margin: 10px 0 5px;
+    }
+    .product p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    .product form button {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product form button:hover {
+      background: #e65100;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<h1>Veg Pickles</h1>
+
+<div class="products">
+
+  <!-- Mango Pickle -->
+  <div class="product">
+    <img src="/static/images/mango.jpg" alt="Mango Pickle">
+    <h2>Mango Pickle</h2>
+    <p>Traditional raw mango chunks spiced and sun-cured for that classic tangy punch.</p>
+    <p><strong>Price:</strong> ₹120</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Mango Pickle">
+      <input type="hidden" name="price" value="120">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Lemon Pickle -->
+  <div class="product">
+    <img src="/static/images/lemon.jpg" alt="Lemon Pickle">
+    <h2>Lemon Pickle</h2>
+    <p>Zesty lemon pieces pickled in salt and spices for a perfect balance of sour and spicy.</p>
+    <p><strong>Price:</strong> ₹100</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Lemon Pickle">
+      <input type="hidden" name="price" value="100">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Tomato Pickle -->
+  <div class="product">
+    <img src="/static/images/tomato.jpg" alt="Tomato Pickle">
+    <h2>Tomato Pickle</h2>
+    <p>Ripe tomatoes blended with fiery masala for a rich, tangy flavor explosion.</p>
+    <p><strong>Price:</strong> ₹95</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Tomato Pickle">
+      <input type="hidden" name="price" value="95">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Amla Pickle -->
+  <div class="product">
+    <img src="/static/images/amla.jpg" alt="Amla Pickle">
+    <h2>Amla Pickle</h2>
+    <p>Vitamin-rich gooseberries pickled with mild spices for a sour, health-boosting bite.</p>
+    <p><strong>Price:</strong> ₹85</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Amla Pickle">
+      <input type="hidden" name="price" value="85">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Mixed Veg Pickle -->
+  <div class="product">
+    <img src="/static/images/mixed.jpg" alt="Mixed Veg Pickle">
+    <h2>Mixed Veg Pickle</h2>
+    <p>A medley of crunchy vegetables marinated in bold Andhra-style spices.</p>
+    <p><strong>Price:</strong> ₹110</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Mixed Veg Pickle">
+      <input type="hidden" name="price" value="110">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Red Chilli Pickle -->
+  <div class="product">
+    <img src="/static/images/chilli.jpg" alt="Red Chilli Pickle">
+    <h2>Red Chilli Pickle</h2>
+    <p>Whole red chilies stuffed and soaked in aromatic, spicy oil for heat lovers.</p>
+    <p><strong>Price:</strong> ₹90</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Red Chilli Pickle">
+      <input type="hidden" name="price" value="90">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Garlic Pickle -->
+  <div class="product">
+    <img src="/static/images/garlic.jpg" alt="Garlic Pickle">
+    <h2>Garlic Pickle</h2>
+    <p>Whole garlic pods steeped in tangy masala — a pungent, flavorful delight.</p>
+    <p><strong>Price:</strong> ₹95</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Garlic Pickle">
+      <input type="hidden" name="price" value="95">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Gongura Pickle -->
+  <div class="product">
+    <img src="/static/images/gongura.jpg" alt="Gongura Pickle">
+    <h2>Gongura Pickle</h2>
+    <p>Tangy gongura leaves (sorrel) blended with spice-rich oil — a true Andhra specialty.</p>
+    <p><strong>Price:</strong> ₹105</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Gongura Pickle">
+      <input type="hidden" name="price" value="105">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>

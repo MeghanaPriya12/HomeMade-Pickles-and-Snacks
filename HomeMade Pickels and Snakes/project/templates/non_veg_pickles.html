@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Non-Veg Pickles - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background-color: #fff8e1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #ff9800;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      color: #e65100;
+      margin-top: 20px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .product {
+      background: #fff3e0;
+      border: 2px solid #ffa726;
+      border-radius: 10px;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+    }
+    .product h2 {
+      color: #e65100;
+      margin: 10px 0 5px;
+    }
+    .product p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    .product form button {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product form button:hover {
+      background: #e65100;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<h1>Non-Veg Pickles</h1>
+
+<div class="products">
+
+  <!-- Prawn Pickle -->
+  <div class="product">
+    <img src="/static/images/prawn.jpg" alt="Prawn Pickle">
+    <h2>Prawn Pickle</h2>
+    <p>Spicy, tangy prawns soaked in aromatic coastal masala.</p>
+    <p><strong>Price:</strong> ₹450</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Prawn Pickle">
+      <input type="hidden" name="price" value="450">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Chicken Pickle -->
+  <div class="product">
+    <img src="/static/images/chicken.jpg" alt="Chicken Pickle">
+    <h2>Chicken Pickle</h2>
+    <p>Juicy chicken with bold Andhra spices.</p>
+    <p><strong>Price:</strong> ₹400</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Chicken Pickle">
+      <input type="hidden" name="price" value="400">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Fish Pickle -->
+  <div class="product">
+    <img src="/static/images/fish.jpg" alt="Fish Pickle">
+    <h2>Fish Pickle</h2>
+    <p>Boneless fish in a sharp, spicy, and tangy masala mix.</p>
+    <p><strong>Price:</strong> ₹550</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Fish Pickle">
+      <input type="hidden" name="price" value="550">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Mutton Pickle -->
+  <div class="product">
+    <img src="/static/images/mutton.jpg" alt="Mutton Pickle">
+    <h2>Mutton Pickle</h2>
+    <p>Juicy mutton pieces blended with bold, fiery spices.</p>
+    <p><strong>Price:</strong> ₹800</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Mutton Pickle">
+      <input type="hidden" name="price" value="800">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Crab Pickle -->
+  <div class="product">
+    <img src="/static/images/crab.jpg" alt="Crab Pickle">
+    <h2>Crab Pickle</h2>
+    <p>Delicate crab meat pickled in rich, zesty Andhra flavors.</p>
+    <p><strong>Price:</strong> ₹500</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Crab Pickle">
+      <input type="hidden" name="price" value="500">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Egg Pickle -->
+  <div class="product">
+    <img src="/static/images/egg.jpg" alt="Egg Pickle">
+    <h2>Egg Pickle</h2>
+    <p>Boiled eggs infused with flavorful, spiced oil and chilies.</p>
+    <p><strong>Price:</strong> ₹240</p>
+    <p><strong>Weight:</strong> 500g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Egg Pickle">
+      <input type="hidden" name="price" value="240">
+      <input type="hidden" name="weight" value="500g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>

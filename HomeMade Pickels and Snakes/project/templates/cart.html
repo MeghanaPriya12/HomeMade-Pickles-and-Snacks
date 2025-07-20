@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Cart - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background: #fff8e1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #ff9800;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0 10px;
+      color: #e65100;
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff3e0;
+    }
+
+    th, td {
+      border: 1px solid #ffa726;
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background: #ff9800;
+      color: #fff;
+    }
+
+    td form {
+      display: inline-block;
+    }
+
+    td button {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin: 0 2px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    td button:hover {
+      background: #e65100;
+    }
+
+    .total {
+      width: 90%;
+      margin: 20px auto;
+      text-align: right;
+      font-size: 1.2em;
+      color: #e65100;
+    }
+
+    .checkout {
+      display: block;
+      width: 200px;
+      margin: 20px auto 40px;
+      background: #ff9800;
+      color: #fff;
+      text-align: center;
+      padding: 12px 0;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .checkout:hover {
+      background: #e65100;
+    }
+
+    .empty {
+      text-align: center;
+      font-size: 1.2em;
+      color: #e65100;
+      margin: 50px 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<h1>Your Shopping Cart</h1>
+
+{% if cart_items %}
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Weight</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart_items %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>₹{{ item.price }}</td>
+        <td>{{ item.weight }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          <form method="POST" action="{{ url_for('update_quantity') }}">
+            <input type="hidden" name="item_name" value="{{ item.name }}">
+            <input type="hidden" name="change" value="1">
+            <button type="submit">+</button>
+          </form>
+          <form method="POST" action="{{ url_for('update_quantity') }}">
+            <input type="hidden" name="item_name" value="{{ item.name }}">
+            <input type="hidden" name="change" value="-1">
+            <button type="submit">-</button>
+          </form>
+          <form method="POST" action="{{ url_for('remove_from_cart') }}">
+            <input type="hidden" name="item_name" value="{{ item.name }}">
+            <button type="submit">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="total">
+    <strong>Total:</strong> ₹{{ total }}
+  </div>
+
+  <a href="{{ url_for('checkout') }}" class="checkout">Proceed to Checkout</a>
+
+{% else %}
+  <div class="empty">
+    Your cart is empty.
+  </div>
+{% endif %}
+
+</body>
+</html>

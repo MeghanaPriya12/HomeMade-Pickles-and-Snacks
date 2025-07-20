@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background-color: #fff8e1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #ff9800;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .banner {
+      margin-top: 20px;
+    }
+    .section {
+      margin: 20px;
+    }
+    .product {
+      display: inline-block;
+      width: 250px;
+      margin: 20px;
+      padding: 15px;
+      border: 2px solid #ffa726;
+      border-radius: 10px;
+      background-color: #fff3e0;
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #e65100;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<div class="banner">
+  <img src="{{ url_for('static', filename='images/logo.png') }}" width="120" alt="Logo">
+  <h1>Welcome to Pickle Paradise</h1>
+</div>
+
+<div class="section">
+  <div class="product">
+    <img src="{{ url_for('static', filename='images/mango.jpg') }}" alt="Mango Pickle">
+    <h2>Mango Pickle</h2>
+    <p>Traditional raw mango chunks, spicy & tangy.</p>
+    <a href="{{ url_for('show_veg_pickles') }}">View More</a>
+  </div>
+
+  <div class="product">
+    <img src="{{ url_for('static', filename='images/chicken.jpg') }}" alt="Chicken Pickle">
+    <h2>Chicken Pickle</h2>
+    <p>Spicy homemade Andhra chicken pickle.</p>
+    <a href="{{ url_for('show_non_veg_pickles') }}">View More</a>
+  </div>
+
+  <div class="product">
+    <img src="{{ url_for('static', filename='images/mixture.jpg') }}" alt="Snacks">
+    <h2>Snacks</h2>
+    <p>Mixture, murukku & crunchy bites.</p>
+    <a href="{{ url_for('show_snacks') }}">Explore Snacks</a>
+  </div>
+</div>
+
+</body>
+</html>

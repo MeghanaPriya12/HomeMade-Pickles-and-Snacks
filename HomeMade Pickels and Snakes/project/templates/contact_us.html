@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background: #fff8e1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #ff9800;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 400px;
+      background: #fff3e0;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #e65100;
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ffa726;
+      border-radius: 5px;
+    }
+
+    form button {
+      width: 100%;
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    form button:hover {
+      background: #e65100;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<div class="container">
+  <h1>Contact Us</h1>
+  <p>If you have any questions or feedback, reach out anytime!</p>
+  <p>Email: support@pickleparadise.com</p>
+  <p>Phone: +91 9876543210</p>
+
+  <form method="POST" action="{{ url_for('submit_review') }}">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+</body>
+</html>

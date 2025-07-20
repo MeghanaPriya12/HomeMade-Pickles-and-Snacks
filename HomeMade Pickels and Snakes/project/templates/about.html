@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background: #fff8e1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #ff9800;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 600px;
+      background: #fff3e0;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #e65100;
+    }
+
+    p {
+      margin: 15px 0;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6em;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<div class="container">
+  <h1>About Pickle Paradise</h1>
+  <p>Welcome to Pickle Paradise — your one-stop shop for homemade pickles and crunchy snacks! We craft our pickles with age-old recipes, using farm-fresh ingredients and traditional sun-curing methods to bring authentic taste straight to your table.</p>
+  <p>Our mission is to keep grandma’s recipes alive, blending spices and love in every jar. Whether it’s tangy mango pickle, fiery non-veg delicacies, or crunchy snacks, we make sure every bite makes you feel at home.</p>
+  <p>Thank you for choosing Pickle Paradise. We’re thrilled to be part of your meal, one jar at a time!</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Snacks - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background-color: #fff8e1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #ff9800;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h1 {
+      color: #e65100;
+      margin-top: 20px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .product {
+      background: #fff3e0;
+      border: 2px solid #ffa726;
+      border-radius: 10px;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+    }
+    .product h2 {
+      color: #e65100;
+      margin: 10px 0 5px;
+    }
+    .product p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    .product form button {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product form button:hover {
+      background: #e65100;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<h1>Snacks</h1>
+
+<div class="products">
+
+  <!-- Mixture -->
+  <div class="product">
+    <img src="/static/images/mixture.jpg" alt="Mixture">
+    <h2>Mixture</h2>
+    <p>A crunchy blend of sev, nuts, and spices — the ultimate anytime snack.</p>
+    <p><strong>Price:</strong> ₹80</p>
+    <p><strong>Weight:</strong> 250g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Mixture">
+      <input type="hidden" name="price" value="80">
+      <input type="hidden" name="weight" value="250g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Murukku -->
+  <div class="product">
+    <img src="/static/images/murukku.jpeg" alt="Murukku">
+    <h2>Murukku</h2>
+    <p>Crispy spiral sticks made from rice flour and sesame — delightfully addictive.</p>
+    <p><strong>Price:</strong> ₹70</p>
+    <p><strong>Weight:</strong> 250g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Murukku">
+      <input type="hidden" name="price" value="70">
+      <input type="hidden" name="weight" value="250g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Banana Chips -->
+  <div class="product">
+    <img src="/static/images/banana.jpeg" alt="Banana Chips">
+    <h2>Banana Chips</h2>
+    <p>Thinly sliced raw bananas fried to golden crispness with a hint of salt.</p>
+    <p><strong>Price:</strong> ₹85</p>
+    <p><strong>Weight:</strong> 250g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Banana Chips">
+      <input type="hidden" name="price" value="85">
+      <input type="hidden" name="weight" value="250g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Ribbon Pakoda -->
+  <div class="product">
+    <img src="/static/images/ribbon.jpg" alt="Ribbon Pakoda">
+    <h2>Ribbon Pakoda</h2>
+    <p>Flat, ribbon-shaped snack with a spicy, crunchy bite in every strip.</p>
+    <p><strong>Price:</strong> ₹75</p>
+    <p><strong>Weight:</strong> 250g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Ribbon Pakoda">
+      <input type="hidden" name="price" value="75">
+      <input type="hidden" name="weight" value="250g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Kara Sev -->
+  <div class="product">
+    <img src="/static/images/sev.jpeg" alt="Kara Sev">
+    <h2>Kara Sev</h2>
+    <p>Spiced chickpea flour noodles deep-fried for a fiery, crunchy treat.</p>
+    <p><strong>Price:</strong> ₹65</p>
+    <p><strong>Weight:</strong> 250g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Kara Sev">
+      <input type="hidden" name="price" value="65">
+      <input type="hidden" name="weight" value="250g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+  <!-- Thattai -->
+  <div class="product">
+    <img src="/static/images/thattai.jpeg" alt="Thattai">
+    <h2>Thattai</h2>
+    <p>Flat, crunchy discs made with rice flour, spices, and lentils — perfectly savory.</p>
+    <p><strong>Price:</strong> ₹60</p>
+    <p><strong>Weight:</strong> 200g</p>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+      <input type="hidden" name="name" value="Thattai">
+      <input type="hidden" name="price" value="60">
+      <input type="hidden" name="weight" value="200g">
+      <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>

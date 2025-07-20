@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout - Pickle Paradise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background-color: #fff8e1;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #ff9800;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 400px;
+      background: #fff3e0;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #e65100;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ffa726;
+      border-radius: 5px;
+    }
+
+    form button {
+      width: 100%;
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    form button:hover {
+      background: #e65100;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('home') }}">🏠 Home</a>
+  <a href="{{ url_for('show_veg_pickles') }}">🥭 Veg Pickles</a>
+  <a href="{{ url_for('show_non_veg_pickles') }}">🍗 Non-Veg Pickles</a>
+  <a href="{{ url_for('show_snacks') }}">🍘 Snacks</a>
+  <a href="{{ url_for('view_cart') }}">🛒 Cart</a>
+  <a href="{{ url_for('signup') }}">📝 Sign Up</a>
+  <a href="{{ url_for('login') }}">🔑 Login</a>
+  <a href="{{ url_for('contact_us') }}">📞 Contact Us</a>
+  <a href="{{ url_for('about') }}">ℹ️ About Us</a>
+  <a href="{{ url_for('logout') }}">🚪 Logout</a>
+</nav>
+
+<div class="container">
+  <h1>Checkout</h1>
+  <form method="POST" action="{{ url_for('checkout') }}">
+    <input type="text" name="fullname" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="address" placeholder="Street Address" required>
+    <input type="text" name="city" placeholder="City" required>
+    <input type="text" name="pincode" placeholder="Pincode" required>
+    <input type="text" name="phone" placeholder="Phone Number" required>
+
+    <label for="payment">Select Payment Method:</label>
+    <select name="payment" id="payment" required onchange="showPaymentFields(this.value)">
+      <option value="">--Select--</option>
+      <option value="Cash On Delivery">Cash On Delivery</option>
+      <option value="UPI">UPI</option>
+      <option value="Card">Card</option>
+    </select>
+
+    <input type="text" id="upi_id" name="upi_id" placeholder="Enter UPI ID" class="hidden">
+    <input type="text" id="card_number" name="card_number" placeholder="Enter Card Number" class="hidden">
+
+    <button type="submit">Place Order</button>
+  </form>
+</div>
+
+<script>
+  function showPaymentFields(method) {
+    document.getElementById('upi_id').classList.add('hidden');
+    document.getElementById('card_number').classList.add('hidden');
+
+    if (method === 'UPI') {
+      document.getElementById('upi_id').classList.remove('hidden');
+    } else if (method === 'Card') {
+      document.getElementById('card_number').classList.remove('hidden');
+    }
+  }
+</script>
+
+</body>
+</html>

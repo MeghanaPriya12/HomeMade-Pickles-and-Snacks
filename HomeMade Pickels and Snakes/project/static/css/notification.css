@@ -1,0 +1,77 @@
+/* ===== EMAIL TEMPLATE ===== */
+.email-container {
+          font-family: 'Arial', sans-serif;
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          color: #333;
+          line-height: 1.6;
+}
+
+.email-header {
+          background-color: var(--primary-color);
+          color: white;
+          padding: 20px;
+          text-align: center;
+          border-radius: 5px 5px 0 0;
+}
+
+.email-body {
+          padding: 20px;
+          background-color: #f9f9f9;
+}
+
+.email-footer {
+          padding: 15px;
+          text-align: center;
+          font-size: 0.8rem;
+          color: #777;
+          background-color: #eee;
+          border-radius: 0 0 5px 5px;
+}
+
+.order-details {
+          margin: 20px 0;
+          background: white;
+          padding: 15px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 0;
+          border-bottom: 1px solid #eee;
+}
+
+.order-total {
+          font-weight: bold;
+          text-align: right;
+          margin-top: 10px;
+          padding-top: 10px;
+          border-top: 2px solid #ddd;
+}
+
+.btn-email {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: var(--primary-color);
+          color: white !important;
+          text-decoration: none;
+          border-radius: 5px;
+          margin: 10px 5px;
+}
+
+/* Inline styles for email compatibility */
+.order-id {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: var(--dark-color);
+}
+
+.shipping-info {
+          background: #f0f8ff;
+          padding: 15px;
+          border-radius: 5px;
+          margin: 15px 0;     }
